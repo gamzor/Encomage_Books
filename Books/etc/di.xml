@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Kirill\Books\Api\Data\BooksInterface"
+                type="Kirill\Books\Model\Books" />
+    <preference for="Kirill\Books\Api\BooksRepositoryInterface"
+                type="Kirill\Books\Model\BooksRepository" />
+</config>

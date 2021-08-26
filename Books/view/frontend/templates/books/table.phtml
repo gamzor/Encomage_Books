@@ -1,0 +1,56 @@
+<?php
+/**
+ * @var \Kirill\Books\Block\Display $block
+ */
+?>
+<?php $collection = $block->getCollection(); ?>
+<?php if ($collection->getSize() > 0) : ?>
+
+    <div class="table-wrapper orders-history">
+
+        <table class="data table table-order-items history" id="my-orders-table">
+            <caption class="table-caption"><?= __('Grid Record') ?></caption>
+            <thead>
+            <tr>
+                <th scope="col" class="col id"><?= __('ID') ?></th>
+                <th scope="col" class="col name"><?= __('Name') ?></th>
+                <th scope="col" class="col-author"><?= __('Author') ?></th>
+                <th scope="col" class="col createat"><?= __('Created At') ?></th>
+                <th scope="col" class="col-updated_at"><?= __('Update At') ?></th>
+                <th scope="col" class="col action"><?= __('Action') ?></th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php foreach ($collection as $item): ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtml(__('ID')) ?>" class="col id">
+                        <?= $item->getId(); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Name')) ?>" class="col name">
+                        <?= $item->getName(); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Author')) ?>" class="col name">
+                        <?= $item->getAuthor(); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Created At')) ?>"
+                        class="col title"><?= date('Y-m-d', strtotime($item->getCreatedAt())); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Updated At')) ?>" class="col-updated_at">
+                        <?= $item->getUpdatedAt(); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Action')) ?>" class="col delete">
+                        <a href="<?= $block->getDeleteAction() . 'id/' . $item->getId(); ?>"><?= __('Delete') ?></a>
+                        <a style="margin-left: 9px"
+                           href="<?= $block->getEditAction($item->getId()); ?>"><?= __('Edit') ?></a>
+                    </td>
+
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <td data-th="<?= $block->escapeHtml(__('New User')) ?>" class="col Add">
+            <a href="<?= $block->getAddAction(); ?>"><?= __('New User') ?></a></td>
+    </div>
+<?php endif; ?>
