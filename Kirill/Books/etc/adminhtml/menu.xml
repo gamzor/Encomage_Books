@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Kirill_Books::test" title="Test" module="Kirill_Books" sortOrder="20"
+             resource="Kirill_Books::test"/>
+        <add id="Kirill_Books::test_book" title="Test" translate="title" module="Kirill_Books" sortOrder="10" parent="Kirill_Books::test" action="book" resource="Kirill_Books::test"/>
+    </menu>
+</config>
